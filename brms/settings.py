@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import dj_database_url
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,6 +28,15 @@ SECRET_KEY = "django-insecure-+c)8hlw*$gcl61^!uho2*%9u&1ic%7lwv4upw^i0y#o&7k5-b@
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
+
+CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_WHITELIST = (
+       'http://localhost:8000',
+       'https://srms-8cyf.onrender.com'
+)
+
+X_FRAME_OPTIONS = 'ALLOWALL'
+
 
 
 # Application definition
@@ -51,6 +62,9 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
+# Application definition
+CORS_ORIGIN_ALLOW_ALL=True
+CORS_ALLOW_CREDENTIALS = True
 ROOT_URLCONF = "brms.urls"
 
 TEMPLATES = [
@@ -76,10 +90,7 @@ WSGI_APPLICATION = "brms.wsgi.application"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
+    "default": dj_database_url.parse("postgresql://srms_user:n33kZXIIudCe6dEIeaYd1O2HcDZHfRFK@dpg-cr2gin08fa8c73dj1lv0-a.oregon-postgres.render.com/srms")
 }
 
 
