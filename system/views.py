@@ -58,3 +58,6 @@ def register(request):
 
 def dashboard(request):
     return render(request, 'user_panel.html')
+
+def registration(request):
+    return render(request, 'registration.html')
