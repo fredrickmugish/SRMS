@@ -55,3 +55,6 @@ def register(request):
                 return redirect('index')
 
         return render(request, 'register.html', {'form': form})
+
+def dashboard(request):
+    return render(request, 'user_panel.html')
