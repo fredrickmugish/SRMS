@@ -2,12 +2,14 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from .forms import CreateUserForm
 from django.contrib import messages
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 
-# Create your views here.
 def index(request):
     if request.user.is_authenticated:
-        return redirect('admin:index')
+        if request.user.is_staff:
+            return redirect(reverse('admin:index'))  # Redirect to Jazzmin admin panel
+        else:
+            return redirect('user_panel')
     else:
         if request.method == 'POST':
             username = request.POST.get('username')
@@ -20,29 +22,36 @@ def index(request):
                 if user.is_staff:
                     return redirect(reverse('admin:index'))  # Redirect to Jazzmin admin panel
                 else:
-                    return redirect('index')
+                    return redirect('user_panel')
             else:
                 messages.info(request, 'Username OR password is incorrect')
 
-    context = {}
-    return render(request, 'index.html', context)
+    return render(request, 'index.html')
+
+def user_panel(request):
+    return render(request, 'user_panel.html')
+
+def logout_user(request):
+    logout(request)
+    return redirect('index')
 
 def register(request):
     if request.user.is_authenticated:
-        return redirect('admin:index')
+        if request.user.is_staff:
+            return redirect(reverse('admin:index'))  # Redirect to Jazzmin admin panel
+        else:
+            return redirect('user_panel')
     else:
-
         form = CreateUserForm()
 
         if request.method == "POST":
             form = CreateUserForm(request.POST)
             if form.is_valid():
-               form.save()
-               user = form.cleaned_data.get('username')
-               messages.success(request, 'Account created for ' +user)
-               return redirect('index')
-        context = {'form':form}
-        return render(request, 'register.html', context)
+                user = form.save(commit=False)
+                user.is_active = True
+                user.save()
+                user = form.cleaned_data.get('username')
+                messages.success(request, f'Account created for {user}')
+                return redirect('index')
 
-
-
+        return render(request, 'register.html', {'form': form})
