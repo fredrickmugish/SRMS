@@ -26,10 +26,34 @@ def index(request):
             else:
                 messages.info(request, 'Username OR password is incorrect')
 
-    return render(request, 'index.html')
+    return render(request, 'site_index.html')
 
 def user_panel(request):
     return render(request, 'user_panel.html')
+
+def login_user(request):
+    if request.user.is_authenticated:
+        if request.user.is_staff:
+            return redirect(reverse('admin:index'))  # Redirect to Jazzmin admin panel
+        else:
+            return redirect('user_panel')
+    else:
+        if request.method == 'POST':
+            username = request.POST.get('username')
+            password = request.POST.get('password')
+
+            user = authenticate(request, username=username, password=password)
+
+            if user is not None:
+                login(request, user)
+                if user.is_staff:
+                    return redirect(reverse('admin:index'))  # Redirect to Jazzmin admin panel
+                else:
+                    return redirect('user_panel')
+            else:
+                messages.info(request, 'Username OR password is incorrect')
+
+    return render(request, 'index.html')
 
 def logout_user(request):
     logout(request)
