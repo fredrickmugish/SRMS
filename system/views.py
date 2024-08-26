@@ -65,3 +65,9 @@ def dashboard(request):
 
 def registration(request):
     return render(request, 'registration.html')
+def about(request):
+    return render(request, 'site_about.html')
+def site_courses(request):
+    return render(request, 'site_courses.html')
+def contact(request):
+    return render(request, 'site_contact.html')
