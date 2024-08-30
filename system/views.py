@@ -3,6 +3,7 @@ from django.urls import reverse
 from .forms import CreateUserForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from .models import*
 
 def index(request):
     return render(request, 'site_index.html')
@@ -68,6 +69,10 @@ def registration(request):
 def about(request):
     return render(request, 'site_about.html')
 def site_courses(request):
-    return render(request, 'site_courses.html')
+    course = Course.objects.all()
+    context = {'courses': course}
+    return render(request, 'site_courses.html', context)
+
 def contact(request):
     return render(request, 'site_contact.html')
+

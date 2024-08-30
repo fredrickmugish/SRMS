@@ -1,78 +1,62 @@
-
 {% extends 'site_base.html' %}
 {% block content %}
-{%load static%}
+{% load static %}
 {% block header %}{% endblock %}
-    <!-- Courses Start -->
-    <div class="container-fluid px-0 py-5">
-        <div class="row mx-0 justify-content-center pt-5">
-            <div class="col-lg-6">
-                <div class="section-title text-center position-relative mb-4">
-                    <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Our Courses</h6>
-                    <h1 class="display-4">Checkout Our Courses</h1>
-                </div>
-            </div>
-        </div>
-         
-    <!-- Courses Section Start -->
-<section id="courses" class="py-5">
-    <div class="container">
-   
-        <div class="row">
-            <!-- Course 1 -->
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">INTRODUCTION TO COMPUTER</h5>
-                        <div class="d-flex justify-content-between">
-                            <span class="font-weight-bold">Duration: 2 Weeks</span>
-                            <span class="font-weight-bold">Fee: Tshs 260000</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Course 2 -->
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">MICROSOFT WORD</h5>
-                        <div class="d-flex justify-content-between">
-                            <span class="font-weight-bold">Duration: 2 Weeks</span>
-                            <span class="font-weight-bold">Fee: Tshs 260000</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Course 3 -->
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">MICROSOFT EXCEL</h5>
-                        <div class="d-flex justify-content-between">
-                            <span class="font-weight-bold">Duration: 2 Weeks</span>
-                            <span class="font-weight-bold">Fee: Tshs 260000</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">MICROSOFT ACCESS</h5>
-                        <div class="d-flex justify-content-between">
-                            <span class="font-weight-bold">Duration: 2 Weeks</span>
-                            <span class="font-weight-bold">Fee: Tshs 260000</span>
-                        </div>
-                    </div>
-                </div>
+<!-- Courses Start -->
+<div class="container-fluid px-0 py-5">
+    <div class="row mx-0 justify-content-center pt-5">
+        <div class="col-lg-6">
+            <div class="section-title text-center position-relative mb-4">
+                <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Our Courses</h6>
+                <h1 class="display-4">Checkout Our Courses</h1>
             </div>
-
-
         </div>
     </div>
-</section>
-<!-- Courses Section End -->
-    {% endblock content %}
+
+    <!-- Static Course Card -->
+    <div class="row justify-content-center">
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">BASIC COURSES</h5>
+                    <ul class="list-unstyled">
+                        <li><strong>INTRODUCTION TO COMPUTER</strong></li>
+                        <li><strong>MICROSOFT WORD</strong></li>
+                        <li><strong>MICROSOFT EXCEL</strong></li>
+                        <li><strong>MICROSOFT ACCESS</strong></li>
+                        <li><strong>MICROSOFT POWER POINT</strong></li>
+                        <li><strong>MICROSOFT PUBLISHER</strong></li>
+                    </ul>
+                    <div class="d-flex justify-content-between mt-3">
+                        <span class="font-weight-bold">Duration: 3 Months</span>
+                        <span class="font-weight-bold">Fee: Tshs 260000</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Static Course Card -->
+
+    <!-- Courses Section Start -->
+    <section class="py-1">
+        <div class="container">
+            <div class="row">
+                {% for course in courses %}
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ course.title }}</h5>
+                            <div class="d-flex justify-content-between">
+                                <span class="font-weight-bold">Duration: {{ course.duration }}</span>
+                                <span class="font-weight-bold">Fee: Tshs {{ course.fee }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- Courses Section End -->
+{% endblock content %}
