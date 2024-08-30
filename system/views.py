@@ -6,7 +6,9 @@ from django.contrib.auth import authenticate, login, logout
 from .models import*
 
 def index(request):
-    return render(request, 'site_index.html')
+    course = Course.objects.all()
+    context = {'courses': course}
+    return render(request, 'site_index.html', context)
 
 def login_user(request):
     if request.user.is_authenticated:
