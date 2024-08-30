@@ -5,3 +5,7 @@ from .models import*
 class CourseAdmin(admin.ModelAdmin):
   list_display = ('title', 'duration', 'fee')
 admin.site.register(Course,CourseAdmin)
+
+class RegistrationAdmin(admin.ModelAdmin):
+  list_display = ('full_name', 'course', 'application_form')
+admin.site.register(Registration,RegistrationAdmin)

@@ -10,12 +10,34 @@
   {% include 'sidebar.html' %}
   <div class="content-wrapper">
     <div class="container mt-0">
-       
+        <h3>REGISTRATION DETAILS</h3>
 
-<h1>Registration details<h1/>
-
-</div>
-</div>
+        <form method="post" action="/registration/add" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="full_name">Full Name:</label>
+                <input type="text" class="form-control" id="full_name" name="full_name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="course">Select Course:</label>
+                <select class="form-control" id="course" name="course" required>
+                    {% for course in courses %}
+                        <option value="{{ course.id }}">{{ course.title }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="application_form">Upload Application Form:</label>
+                <input type="file" class="form-control" id="application_form" name="application_form" required>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        
+    </div>
+  </div>
   {% include 'scripts.html' %}
 </div>
 </body>

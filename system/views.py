@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.http import HttpResponseRedirect
 from django.urls import reverse
 from .forms import CreateUserForm
 from django.contrib import messages
@@ -67,9 +68,34 @@ def dashboard(request):
     return render(request, 'user_panel.html')
 
 def registration(request):
-    return render(request, 'registration.html')
+    courses = Course.objects.all()
+    context = {'courses': courses}
+    return render(request, 'registration.html', context)
+
+def registrationAdd(request):
+    if request.method == 'POST':
+        # Handle form submission
+        full_name = request.POST.get('full_name')
+        course_id = request.POST.get('course')
+        application_form = request.FILES.get('application_form')
+        
+        # Save data to the database
+        registration = Registration()
+        registration.full_name = full_name
+        registration.course_id = course_id
+        registration.application_form = application_form
+        registration.save()
+
+        
+        return HttpResponseRedirect('/registration/')  
+ # Retrieve courses for the dropdown
+    courses = Course.objects.all()
+    context = {'courses': courses}
+    return render(request, 'registration.html', context)
+
 def about(request):
     return render(request, 'site_about.html')
+
 def site_courses(request):
     course = Course.objects.all()
     context = {'courses': course}
