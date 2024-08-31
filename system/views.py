@@ -107,3 +107,6 @@ def site_courses(request):
 def contact(request):
     return render(request, 'site_contact.html')
 
+def fee(request):
+    payments = Payment.objects.all()  # or use appropriate filter if needed
+    return render(request, 'fee.html', {'payments': payments})
