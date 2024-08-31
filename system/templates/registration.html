@@ -12,6 +12,14 @@
     <div class="container mt-0">
         <h3>REGISTRATION DETAILS</h3>
 
+        {% if messages %}
+            <div class="alert alert-success">
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            </div>
+        {% endif %}
+
         <form method="post" action="/registration/add" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="form-group">

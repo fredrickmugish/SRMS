@@ -87,6 +87,9 @@ def registrationAdd(request):
         registration.save()
 
         
+
+        messages.success(request, 'Registered successfully!')
+
         return HttpResponseRedirect('/registration/')  
  # Retrieve courses for the dropdown
     courses = Course.objects.all()
