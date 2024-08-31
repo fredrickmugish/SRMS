@@ -13,12 +13,13 @@
         <h3>REGISTRATION DETAILS</h3>
 
         {% if messages %}
-            <div class="alert alert-success">
-                {% for message in messages %}
-                    {{ message }}
-                {% endfor %}
-            </div>
-        {% endif %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Success!</strong> {% for message in messages %}{{ message }}{% endfor %}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {% endif %}
 
         <form method="post" action="/registration/add" enctype="multipart/form-data">
             {% csrf_token %}
