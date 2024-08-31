@@ -229,7 +229,7 @@ JAZZMIN_SETTINGS = {
     "hide_apps": [],
 
     # Hide these models when generating side menu (e.g auth.user)
-    "hide_models": ["auth.Group"],
+    "hide_models": ["auth.Group", "admin.LogEntry"],
 
     # List of apps (and/or models) to base side menu ordering off of (does not need to contain all apps/models)
     "order_with_respect_to": ["auth", "books", "books.author", "books.book"],
