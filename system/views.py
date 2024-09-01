@@ -62,7 +62,7 @@ def user_panel(request):
 
 def logout_user(request):
     logout(request)
-    return redirect('index')
+    return redirect('login_user')
 
 def dashboard(request):
     return render(request, 'user_panel.html')
