@@ -11,7 +11,8 @@
   <div class="content-wrapper">
     <div class="container mt-1">
         <h5>PAYMENT HISTORY</h5>
-        <div class="table-responsive">
+        <div class="d-none d-md-block table-responsive">
+          <!-- Default table layout for larger screens -->
           <table class="table table-bordered">
             <thead>
               <tr>
@@ -46,6 +47,35 @@
               {% endfor %}
             </tbody>
           </table>
+        </div>
+
+        <!-- Vertical card layout for smaller screens -->
+        <div class="d-md-none">
+          {% for payment in payments %}
+          <div class="card mb-3">
+            <div class="card-body">
+              <h5 class="card-title">Payment Details</h5>
+              <p class="card-text"><strong>Registration:</strong> {{ payment.registration.full_name }}</p>
+              <p class="card-text"><strong>Amount:</strong> {{ payment.amount }}</p>
+              <p class="card-text"><strong>Date:</strong> {{ payment.date }}</p>
+              <p class="card-text"><strong>Payment Method:</strong> {{ payment.payment_method }}</p>
+              <p class="card-text"><strong>Receipt:</strong>
+                {% if payment.receipt %}
+                  <a href="{{ payment.receipt.url }}" target="_blank">View Receipt</a>
+                {% else %}
+                  No Receipt
+                {% endif %}
+              </p>
+              <p class="card-text"><strong>Completed:</strong> {{ payment.is_completed }}</p>
+            </div>
+          </div>
+          {% empty %}
+          <div class="card mb-3">
+            <div class="card-body">
+              <p>No payments found.</p>
+            </div>
+          </div>
+          {% endfor %}
         </div>
     </div>
   </div>

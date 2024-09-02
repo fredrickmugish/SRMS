@@ -2,6 +2,8 @@ from django.urls import path
 from . import views
 from django.conf import settings
 from django.conf.urls.static import static
+from .views import change_password
+from .views import update_profile
 
 urlpatterns = [
     path('', views.index, name="index"),
@@ -16,6 +18,8 @@ urlpatterns = [
     path('site_courses/', views.site_courses, name="site_courses"),
     path('contact/', views.contact, name="contact"),
     path('fee/', views.fee, name="fee"),
+    path('change_password/', change_password, name='change_password'),
+    path('update_profile/', update_profile, name='update_profile'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

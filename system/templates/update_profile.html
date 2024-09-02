@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% include 'css.html' %}
+</head>
+<body class="hold-transition sidebar-mini layout-fixed" data-panel-auto-height-mode="height">
+<div class="wrapper">
+  {% include 'navbar.html' %}
+  {% include 'sidebar.html' %}
+  <div class="content-wrapper">
+    <div class="container mt-1">
+        <div class="container">
+            <h2>Update Profile Picture</h2>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary">Update</button>
+            </form>
+        </div>
+    </div>
+  </div>
+  {% include 'scripts.html' %}
+</div>
+</body>
+</html>
