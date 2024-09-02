@@ -16,7 +16,7 @@
           <table class="table table-bordered">
             <thead>
               <tr>
-                <th>Registration</th>
+                <th>Last Name</th>
                 <th>Amount</th>
                 <th>Date</th>
                 <th>Payment Method</th>
@@ -27,7 +27,7 @@
             <tbody>
               {% for payment in payments %}
               <tr>
-                <td>{{ payment.registration.full_name }}</td>
+                <td>{{ payment.registration.last_name }}</td>
                 <td>{{ payment.amount }}</td>
                 <td>{{ payment.date }}</td>
                 <td>{{ payment.payment_method }}</td>

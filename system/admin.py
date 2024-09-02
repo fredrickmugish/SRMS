@@ -11,10 +11,10 @@ admin.site.register(Course, CourseAdmin)
 class PaymentInline(admin.TabularInline):
     model = Payment
     extra = 1  
-    
+
 class RegistrationAdmin(admin.ModelAdmin):
-    list_display = ('full_name', 'course', 'view_application_form')
-    search_fields = ('full_name', 'course__title') 
+    list_display = ('last_name', 'course', 'view_application_form')
+    search_fields = ('last_name', 'course__title') 
     inlines = [PaymentInline] 
 
     def get_queryset(self, request):

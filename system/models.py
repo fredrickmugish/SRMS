@@ -12,12 +12,12 @@ class Course(models.Model):
     
 class Registration(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='registrations')
-    full_name = models.CharField(max_length=255, unique=True)
+    last_name = models.CharField(max_length=255, unique=True)
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
     application_form = models.FileField(upload_to='applications/')
 
     def __str__(self):
-        return self.full_name
+        return self.last_name
 
 class Payment(models.Model):
     PAYMENT_METHOD_CHOICES = [
@@ -35,7 +35,7 @@ class Payment(models.Model):
     is_completed = models.BooleanField(default=False)  # Track if payment is completed
 
     def __str__(self):
-        return f'{self.registration.full_name} - {self.amount} on {self.date}'
+        return f'{self.registration.last_name} - {self.amount} on {self.date}'
 
 class Profile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)

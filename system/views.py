@@ -94,19 +94,19 @@ def registration(request):
 @login_required
 def registrationAdd(request):
     if request.method == 'POST':
-        full_name = request.POST.get('full_name')
+        last_name = request.POST.get('last_name')
         course_id = request.POST.get('course')
         application_form = request.FILES.get('application_form')
         
         # Check if the username is already registered
-        if Registration.objects.filter(full_name=full_name).exists():
+        if Registration.objects.filter(last_name=last_name).exists():
             messages.error(request, 'A registration with this name already exists.')
             return redirect('registration')  # Redirect back to the registration form
 
         # Save data to the database
         registration = Registration()
         registration.user = request.user  # Associate registration with the logged-in user
-        registration.full_name = full_name
+        registration.last_name = last_name
         registration.course_id = course_id
         registration.application_form = application_form
         registration.save()
