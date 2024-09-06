@@ -1,0 +1,125 @@
+{% extends 'site_base.html' %}
+{% block content %}
+{%load static%}
+{% block header %}{% endblock %}
+    <div class="container-fluid px-0 py-2">
+        <div class="row mx-0 justify-content-center pt-2">
+            <div class="col-lg-6">
+                <div class="section-title text-center position-relative mb-4">
+                    <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Stationery</h6>
+                    <h1 class="display-5">Checkout Our Stationery Services</h1>
+                </div>
+            </div>
+        </div>
+    <!-- Stationery Services Section -->
+    <section class="services">
+        <div class="container">
+            <div class="row">
+                <!-- Service Card 1 -->
+                <div class="col-md-3 mb-3">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Photocopying</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service Card 2 -->
+                <div class="col-md-3 mb-3">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Typing</h5>
+                           
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service Card 3 -->
+                <div class="col-md-3 mb-3">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Printing</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service Card 4 -->
+                <div class="col-md-3 mb-3">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Binding</h5>
+                           
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service Card 5 -->
+                <div class="col-md-3 mb-3">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Business Cards</h5>
+                           
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service Card 6 -->
+                <div class="col-md-3 mb-3">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Kadi za Harusi</h5>
+                           
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service Card 7 -->
+                <div class="col-md-3 mb-3">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Passport Photos</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service Card 8 -->
+                <div class="col-md-3 mb-3">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Cake Decorations</h5>
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Section -->
+    <section class="service-images">
+        <div class="container">
+            <div class="row">
+                <!-- Image 1 -->
+                <div class="col-md-3 mb-4">
+                    <img src="{% static 'site/img/s1.jpg' %}" alt="Photocopying" class="img-fluid">
+                </div>
+                <!-- Image 2 -->
+                <div class="col-md-3 mb-4">
+                    <img src="{% static 'site/img/s2.jpg' %}" alt="Typing" class="img-fluid">
+                </div>
+                <!-- Image 3 -->
+                <div class="col-md-3 mb-4">
+                    <img src="{% static 'site/img/s3.jpg' %}" alt="Printing" class="img-fluid">
+                </div>
+                <!-- Image 4 -->
+                <div class="col-md-3 mb-4">
+                    <img src="{% static 'site/img/s5.jpg' %}" alt="Binding" class="img-fluid">
+                </div>
+             
+            </div>
+        </div>
+    </section>
+{% endblock content %}

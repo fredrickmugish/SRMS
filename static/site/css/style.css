@@ -64,6 +64,22 @@ body {
   background-color: #FFFFFF;
 }
 
+.services {
+  padding: 2rem;
+  background-color: #fff;
+}
+.service-images {
+  padding: 2rem;
+}
+
+.image-grid img {
+  width: 100%;
+  height: auto;
+  border: 1px solid #ddd;
+  padding: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
 [tabindex="-1"]:focus:not(:focus-visible) {
   outline: 0 !important;
 }

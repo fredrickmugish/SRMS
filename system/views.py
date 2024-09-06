@@ -163,3 +163,6 @@ def update_profile(request):
         form = ProfileForm(instance=profile)
     
     return render(request, 'update_profile.html', {'form': form})
+
+def stationery(request):
+    return render(request, 'stationery.html')

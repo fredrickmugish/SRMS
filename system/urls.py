@@ -20,6 +20,7 @@ urlpatterns = [
     path('fee/', views.fee, name="fee"),
     path('change_password/', change_password, name='change_password'),
     path('update_profile/', update_profile, name='update_profile'),
+    path('stationery/', views.stationery, name="stationery"),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
