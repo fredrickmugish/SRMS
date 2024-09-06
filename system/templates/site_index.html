@@ -99,47 +99,87 @@
         </div>
     </div> 
     {% endblock header %}-->
-
-
-<section class="container text-center explanation-section">
-  <h1 style="margin-top: 1px; color:black">KINGSTON COMPUTER TRAINING CENTER</h1>
-  <h5 class="text-black mt-4 mb-4">Unlock Your Future with Expert Training in Computer and ICT Skills</h5>
-</section>
-
-<div class="carousel-container">
-  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="{% static 'site/img/32.jpg' %}" height="500" width="100" class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="{% static 'site/img/1.jpg' %}" height="500" width="100" class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="{% static 'site/img/3.jpg' %}" height="500" width="100" class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="{% static 'site/img/35.jpg' %}" height="500" width="100" class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="{% static 'site/img/18.jpg' %}" height="500" width="100" class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="{% static 'site/img/28.jpg' %}" height="500" width="100" class="d-block w-100" alt="...">
-      </div>
+    <div class="container">
+        <!-- Top Section: Explanation -->
+        <section class="text-center explanation-section">
+            <h1 style="margin-top: 1px; color:black">KINGSTON COMPUTER TRAINING CENTER</h1>
+            <h5 class="text-black mt-4 mb-4">Unlock Your Future with Expert Training in Computer and ICT Skills</h5>
+        </section>
+    
+        <!-- Left and Right Sections -->
+        <div class="row">
+            <!-- Left Section: CEO Welcome Section -->
+            <div class="col-md-4">
+                <section class="ceo-welcome-section text-center">
+                    <img src="{% static 'site/img/mzee.jpg' %}" alt="CEO Passport" class="img-fluid mb-3" style="width: 250px; height: auto;">
+                    <h4 class="text-black">Welcome to KINGSTON</h4>
+                    <p class="text-black mt-2 mb-2">On behalf of the KINGSTON COMPUTER TRAINING CENTER, I warmly welcome you to our institution where we provide expert training in Computer and ICT skills.</p>
+                    <p>- CEO</p>
+                </section>
+            </div>
+    
+            <!-- Right Section: Carousel -->
+            <div class="col-md-8">
+                <div class="carousel-container">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="{% static 'site/img/32.jpg' %}" class="d-block w-100" style="height: 500px; object-fit: cover;" alt="...">
+                                <div class="carousel-caption d-none d-md-block" style="background-color: rgba(0, 0, 0, 0.5); padding: 10px;">
+                                    <p>Brief description about the content of the first image.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{% static 'site/img/1.jpg' %}" class="d-block w-100" style="height: 500px; object-fit: cover;" alt="...">
+                                <div class="carousel-caption d-none d-md-block" style="background-color: rgba(0, 0, 0, 0.5); padding: 10px;">
+                              
+                                    <p>Brief description about the content of the second image.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{% static 'site/img/3.jpg' %}" class="d-block w-100" style="height: 500px; object-fit: cover;" alt="...">
+                                <div class="carousel-caption d-none d-md-block" style="background-color: rgba(0, 0, 0, 0.5); padding: 10px;">
+                          
+                                    <p>Brief description about the content of the third image.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{% static 'site/img/35.jpg' %}" class="d-block w-100" style="height: 500px; object-fit: cover;" alt="...">
+                                <div class="carousel-caption d-none d-md-block" style="background-color: rgba(0, 0, 0, 0.5); padding: 10px;">
+                          
+                                    <p>Brief description about the content of the fourth image.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{% static 'site/img/18.jpg' %}" class="d-block w-100" style="height: 500px; object-fit: cover;" alt="...">
+                                <div class="carousel-caption d-none d-md-block" style="background-color: rgba(0, 0, 0, 0.5); padding: 10px;">
+                              
+                                    <p>Brief description about the content of the fifth image.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{% static 'site/img/28.jpg' %}" class="d-block w-100" style="height: 500px; object-fit: cover;" alt="...">
+                                <div class="carousel-caption d-none d-md-block" style="background-color: rgba(0, 0, 0, 0.5); padding: 10px;">
+                                    
+                                    <p>Brief description about the content of the sixth image.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-buttons">
+                            <button class="carousel-control-prev" type="button" data-target="#carouselExampleIndicators" data-slide="prev">
+                                <span class="carousel-button"><span class="carousel-control-prev-icon" aria-hidden="true"></span></span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-target="#carouselExampleIndicators" data-slide="next">
+                                <span class="carousel-button"><span class="carousel-control-next-icon" aria-hidden="true"></span></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="carousel-buttons">
-      <button class="carousel-control-prev" type="button" data-target="#carouselExampleIndicators" data-slide="prev">
-        <span class="carousel-button"><span class="carousel-control-prev-icon" aria-hidden="true"></span></span>
-      </button>
-      <button class="carousel-control-next" type="button" data-target="#carouselExampleIndicators" data-slide="next">
-        <span class="carousel-button"><span class="carousel-control-next-icon" aria-hidden="true"></span></span>
-      </button>
-    </div>
-  </div>
-</div>
-
-
+    
+      
      <!-- About Start -->
     <div class="container-fluid py-5">
         <div class="container py-5">
