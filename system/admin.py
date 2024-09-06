@@ -1,6 +1,8 @@
 from django.contrib import admin
 from .models import*
 from django.utils.html import format_html
+from .models import ContactMessage
+
 # Register your models here.
 
 class CourseAdmin(admin.ModelAdmin):
@@ -32,3 +34,9 @@ class RegistrationAdmin(admin.ModelAdmin):
 
 admin.site.register(Registration, RegistrationAdmin)
 
+
+@admin.register(ContactMessage)
+class ContactMessageAdmin(admin.ModelAdmin):
+    list_display = ('name', 'email', 'subject', 'message', 'created_at')
+    search_fields = ('name', 'email', 'subject', 'message')
+    list_filter = ('created_at',)

@@ -40,6 +40,8 @@ def login_user(request):
 
     return render(request, 'index.html')
 
+
+@login_required
 def register(request):
     if request.user.is_authenticated:
         if request.user.is_staff:
@@ -166,3 +168,24 @@ def update_profile(request):
 
 def stationery(request):
     return render(request, 'stationery.html')
+
+from .models import ContactMessage
+def contact_ms(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        subject = request.POST.get('subject')
+        message = request.POST.get('message')
+
+        # Save the message to the database
+        ContactMessage.objects.create(
+            name=name,
+            email=email,
+            subject=subject,
+            message=message
+        )
+
+        messages.success(request, 'Your message has been submitted successfully.')
+        return redirect('contact')  
+
+    return render(request, 'contact.html')
