@@ -15,7 +15,6 @@ def index(request):
     context = {'courses': course}
     return render(request, 'site_index.html', context)
 
-
 def login_user(request):
     if request.user.is_authenticated:
         if request.user.is_staff:
@@ -41,7 +40,6 @@ def login_user(request):
     return render(request, 'index.html')
 
 
-@login_required
 def register(request):
     if request.user.is_authenticated:
         if request.user.is_staff:
